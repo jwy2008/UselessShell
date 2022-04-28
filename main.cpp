@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//function
 string user(string a);
 void cname();
 void config();
@@ -15,7 +16,8 @@ void ls();
 void help();
 void exit();
 
-string path = get_current_dir_name();
+//variable
+string path = get_current_dir_name(); //parh
 
 typedef void (*DoFunc)();
 
@@ -34,33 +36,33 @@ struct TCommandMap gCommandMaps[] =
     {"exit",exit}
 };
 
-int main()
+int main() //main
 {
     while (true)
     {
-	string input;
-	config();
-	cin >> input;
-	int len = input.size();
-	if (input[len-1] == '\n') input[len-1] = '\0';
-	if (len == 0) continue;
-	bool bFunc = false;
-	for (int i=0;i<sizeof(gCommandMaps)/sizeof(struct TCommandMap);i++)
-	{
-	    char ch[32];
-	    strcpy(ch,input.c_str());
-	    if (strcasecmp(gCommandMaps[i].mCommand,ch) == 0)
-	    {
-		bFunc = true;
-		gCommandMaps[i].mFunc();
-		break;
+        string input;
+        config();
+        cin >> input;
+        int len = input.size();
+        if (input[len-1] == '\n') input[len-1] = '\0';
+        if (len == 0) continue;
+        bool bFunc = false;
+        for (int i=0;i<sizeof(gCommandMaps)/sizeof(struct TCommandMap);i++)
+        {
+            char ch[32];
+            strcpy(ch,input.c_str());
+            if (strcasecmp(gCommandMaps[i].mCommand,ch) == 0)
+            {
+            bFunc = true;
+            gCommandMaps[i].mFunc();
+            break;
+            }
 	    }
-	}
-	if (!(bFunc)) cout << "sh: command not found: " << input << endl;
+	    if (!(bFunc)) cout << "sh: command not found: " << input << endl;
     }
 }
 
-string user(string a)
+string user(string a) //user name and user dir
 {
     uid_t userid;
     struct passwd* pwd;
@@ -71,15 +73,20 @@ string user(string a)
     return "";
 }
 
-void cname()
+void cname() //computer name
 {
     char name[32];
     if(gethostname(name,sizeof(name))) perror("gethostname");
     cout << name;
 }
 
-void config()
+void config() //config (beautification)
 {
+    /*---------------------------
+        user("name"): user name
+        cname() computer name
+        user("dir"): user dir
+    ---------------------------*/
     cout << user("name") << "@";
     cname();
     cout << ":";
@@ -90,6 +97,7 @@ void config()
     else cout << " $";
 }
 
+//directives
 void pwd()
 {
     cout << path << endl;
