@@ -1,7 +1,6 @@
 #include <iostream>
 #include <unistd.h>
 #include <cstring>
-#include <strings.h>
 #include <pwd.h>
 #include <dirent.h>
 
