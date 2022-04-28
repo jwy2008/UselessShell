@@ -93,8 +93,8 @@ void config() //config (beautification)
     if (path == user("dir")) cout << "~";
     else if (path == "/") cout << "/";
     else cout << path;
-    if (user("name") == "root") cout << " #";
-    else cout << " $";
+    if (user("name") == "root") cout << "#";
+    else cout << "$";
 }
 
 //directives
