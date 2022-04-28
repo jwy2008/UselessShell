@@ -8,11 +8,13 @@
 using namespace std;
 
 string user(string a);
-void pwd();
 void cname();
-void ps1();
+void config();
+void pwd();
 void cd();
 void ls();
+void help();
+void exit();
 
 string path = get_current_dir_name();
 
@@ -28,7 +30,9 @@ struct TCommandMap gCommandMaps[] =
 {
     {"ls",ls},
     {"pwd",pwd},
-    {"cd",cd}
+    {"cd",cd},
+    {"help",help},
+    {"exit",exit}
 };
 
 int main()
@@ -36,7 +40,7 @@ int main()
     while (true)
     {
 	string input;
-	ps1();
+	config();
 	cin >> input;
 	int len = input.size();
 	if (input[len-1] == '\n') input[len-1] = '\0';
@@ -57,10 +61,6 @@ int main()
     }
 }
 
-void pwd()
-{
-    cout << path << endl;
-}
 string user(string a)
 {
     uid_t userid;
@@ -71,13 +71,15 @@ string user(string a)
     else if (a == "dir") return pwd->pw_dir;
     return "";
 }
+
 void cname()
 {
     char name[32];
     if(gethostname(name,sizeof(name))) perror("gethostname");
     cout << name;
 }
-void ps1()
+
+void config()
 {
     cout << user("name") << "@";
     cname();
@@ -88,6 +90,12 @@ void ps1()
     if (user("name") == "root") cout << " # ";
     else cout << " $ ";
 }
+
+void pwd()
+{
+    cout << path << endl;
+}
+
 void cd()
 {
     string temp;
@@ -101,6 +109,7 @@ void cd()
     else if (!(pDir = opendir(temp1.c_str()))) {cout << "cd: no such file or directory: " << temp << endl; return ;} else path += "/" + temp;
     if (path[0] == '/' and path[1] == '/') path = path.substr(1,path.size()-1);
 }
+
 void ls()
 {
     DIR *pDir;
@@ -118,4 +127,14 @@ void ls()
         }
     }
     closedir(pDir); 
+}
+
+void help()
+{
+    cout << "[Help]:" << endl << "cd exit help ls pwd" << endl;
+}
+
+void exit()
+{
+    exit(0);
 }
