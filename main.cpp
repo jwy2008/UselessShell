@@ -8,11 +8,12 @@ using namespace std;
 
 //function
 string user(string a);
-void cname();
+string cname();
 void config();
 void pwd();
 void cd();
 void ls();
+void echo();
 void help();
 void exit();
 
@@ -32,6 +33,7 @@ struct TCommandMap gCommandMaps[] =
     {"ls",ls},
     {"pwd",pwd},
     {"cd",cd},
+    {"echo",echo},
     {"help",help},
     {"exit",exit}
 };
@@ -73,11 +75,12 @@ string user(string a) //user name and user dir
     return "";
 }
 
-void cname() //computer name
+string cname() //computer name
 {
-    char name[32];
-    if(gethostname(name,sizeof(name))) perror("gethostname");
-    cout << name;
+    char temp[32];
+    if(gethostname(temp,sizeof(temp))) perror("gethostname");
+    string name = temp;
+    return name;
 }
 
 void config() //config (beautification)
@@ -87,9 +90,7 @@ void config() //config (beautification)
         cname() computer name
         user("dir"): user dir
     ---------------------------*/
-    cout << user("name") << "@";
-    cname();
-    cout << ":";
+    cout << user("name") << "@" << cname() << ":";
     if (path == user("dir")) cout << "~";
     else if (path == "/") cout << "/";
     else cout << path;
@@ -136,9 +137,16 @@ void ls()
     closedir(pDir); 
 }
 
+void echo()
+{
+    string temp;
+    cin >> temp;
+    cout << temp << endl;
+}
+
 void help()
 {
-    cout << "[Help]:" << endl << "cd exit help ls pwd" << endl;
+    cout << "[Help]:" << endl << "cd echo exit help ls pwd" << endl;
 }
 
 void exit()
