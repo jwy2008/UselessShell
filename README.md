@@ -9,7 +9,7 @@ ush has the following issues when writing, but it doesn't affect everyday use, s
 
 You can build as an executable by running `./install.sh` in the directory of this project, and if that fails, install a C/C++ compiler like G++  
 
-beautification:  
+Beautification:  
 Although ush does not have a configuration file, you can still configure it by modifying the source code  
 You can modify the following sections:
 ```c++
