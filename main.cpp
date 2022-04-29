@@ -87,7 +87,7 @@ void config() //config (beautification)
 {
     /*---------------------------
         user("name"): user name
-        cname() computer name
+        cname(): computer name
         user("dir"): user dir
     ---------------------------*/
     cout << user("name") << "@" << cname() << ":";
