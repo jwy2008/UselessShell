@@ -1,17 +1,18 @@
-# Ush(Useless Shell)
-It is useless because it has only 6 commands, can not modify files and directories, and can not even run .sh files!  
-ush will be deactivated and discontinued after it is open sourced, but you can still use it for free and quickly, as it is still a good computer shell, but we cannot guarantee its security.  
-ush has the following issues when writing, but it doesn't affect everyday use, so we'll ignore it:
-1. When you use the `cd` command, you will not be able to jump to multiple directories at once
-2. When you run multiple instructions at once, the output may be confusing, but it is still readable  
-- We will always look forward to your fixing this issue
-- <u>But please don't add new directives to keep it safe and portable!</u>
+# Ush(无用的计算机壳层)
+它很没用，因为它只有6个命令，不能修改文件和目录，甚至不能运行.sh文件！
+ush将于开源后将被停用并停止支持，但您仍然可以免费且便捷的使用它，因为它仍然是一个很好的shell，但我们不能保证它的安全性。
+ush在编写写的时候有以下问题，但是不影响日常使用，我们将忽略它：
 
-You can build as an executable by running `./install.sh` in the directory of this project, and if that fails, install a C/C++ compiler like G++  
+1. 当你使用`cd`命令时，你将无法一次跳转到多个目录
+2. 当您尝试一次运行多条指令时，输出可能会令人困惑，但仍然具有可读性
+- 我们将永远期待您解决以上问题
+- <u>但请不要添加新指令以确保其的安全性与便携性！</u>  
 
-beautification:  
-Although ush does not have a configuration file, you can still configure it by modifying the source code  
-You can modify the following sections:
+您可以通过在此项目目录中运行`./install.sh`来构建为可执行文件，如果失败，请安装 C/C++ 编译器，如 G++
+
+美化：
+ush虽然没有配置文件，但是还是可以通过修改源码来配置  
+您可以修改以下部分：
 ```c++
 void config() //config (beautification)
 {
@@ -28,11 +29,11 @@ void config() //config (beautification)
     else cout << "$";
     }
 ```
-The default output here is
+以下为输出内容
 ```
 runner:docs$
 ```
-Themes:  
+主题：  
 robbyrussel
 ```
 > docs
