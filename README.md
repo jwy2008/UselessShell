@@ -1,10 +1,53 @@
-# Ush(Useless Shell 没用的交互式计算机壳层)
-它很没用,因为其只有6个命令,不能配置,不能对文件与目录进行修改,甚至不能运行.sh文件!  
-ush将在其开源后停用并停止支持,不过您仍可以免费且快捷的使用它,因为它仍是一个好用的计算机壳层,不过我们不能保证其的安全性.  
-ush在编写时有以下问题,不过不影响日常使用,所以我们将忽略它:
-1. 当您使用```cd```命令时将无法一次性跳转多个目录
-2. 当您一次运行多个指令的时候可能造成输出混乱,不过仍有可阅读性  
-- 我们将随时期待您修复此问题
-- <u>不过为了保持其的安全性和便携性请不要增加新的指令!</u>
+# Ush(Useless Shell)
+It is useless because it has only 6 commands, can not modify files and directories, and can not even run .sh files!  
+ush will be deactivated and discontinued after it is open sourced, but you can still use it for free and quickly, as it is still a good computer shell, but we cannot guarantee its security.  
+ush has the following issues when writing, but it doesn't affect everyday use, so we'll ignore it:
+1. When you use the ```cd``` command, you will not be able to jump to multiple directories at once
+2. When you run multiple instructions at once, the output may be confusing, but it is still readable  
+- We will always look forward to your fixing this issue
+- <u>But please don't add new directives to keep it safe and portable!</u>
 
-您可以通过在此项目的目录运行```./install.sh```部署为可执行文件,如果失败,请安装G++等C/C++编译器
+You can build as an executable by running `./install.sh` in the directory of this project, and if that fails, install a C/C++ compiler like G++  
+
+beautification:  
+Although ush does not have a configuration file, you can still configure it by modifying the source code  
+You can modify the following sections:
+```c++
+void config() //config (beautification)
+{
+    /*---------------------------
+        user("name"): user name
+        cname() computer name
+        user("dir"): user dir
+    ---------------------------*/
+    cout << user("name") << "@" << cname() << ":";
+    if (path == user("dir")) cout << "~";
+    else if (path == "/") cout << "/";
+    else cout << path;
+    if (user("name") == "root") cout << "#";
+    else cout << "$";
+    }
+```
+The default output here is
+```
+runner:docs$
+```
+
+robbyrussel:
+```
+> docs
+```
+```c++
+void config() //config (beautification)
+{
+    /*---------------------------
+        user("name"): user name
+        cname() computer name
+        user("dir"): user dir
+    ---------------------------*/
+    cout << "> ";
+    if (path == user("dir")) cout << "~";
+    else if (path == "/") cout << "/";
+    else cout << path;
+    }
+```
