@@ -15,18 +15,18 @@ You can modify the following sections:
 ```c++
 void config() //config (beautification)
 {
-    /*---------------------------
-        user("name"): user name
-        cname() computer name
-        user("dir"): user dir
-    ---------------------------*/
-    cout << user("name") << "@" << cname() << ":";
-    if (path == user("dir")) cout << "~";
-    else if (path == "/") cout << "/";
-    else cout << path;
-    if (user("name") == "root") cout << "#";
-    else cout << "$";
-    }
+	/*---------------------------
+		user("name"): user name
+		cname() computer name
+		user("dir"): user dir
+	---------------------------*/
+	cout << user("name") << "@" << cname() << ":";
+	if (path == user("dir")) cout << "~";
+	else if (path == "/") cout << "/";
+	else cout << path;
+	if (user("name") == "root") cout << "#";
+	else cout << "$";
+	}
 ```
 The default output here is
 ```
@@ -40,16 +40,16 @@ robbyrussel
 ```c++
 void config() //config (beautification)
 {
-    /*---------------------------
-        user("name"): user name
-        cname() computer name
-        user("dir"): user dir
-    ---------------------------*/
-    cout << "> ";
-    if (path == user("dir")) cout << "~";
-    else if (path == "/") cout << "/";
-    else cout << path;
-    }
+	/*---------------------------
+		user("name"): user name
+		cname() computer name
+		user("dir"): user dir
+	---------------------------*/
+	cout << "> ";
+	if (path == user("dir")) cout << "~";
+	else if (path == "/") cout << "/";
+	else cout << path;
+	}
 ```
 ys
 ```
@@ -59,15 +59,15 @@ $
 ```c++
 void config() //config (beautification)
 {
-    /*---------------------------
-        user("name"): user name
-        cname() computer name
-        user("dir"): user dir
-    ---------------------------*/
-    cout  << "#" << user("name") << "@" << cname() << " in ";
-    if (path == user("dir")) cout << "~";
-    else if (path == "/") cout << "/";
-    else cout << path;
-    cout << endl << "$";
-    }
+	/*---------------------------
+		user("name"): user name
+		cname() computer name
+		user("dir"): user dir
+	---------------------------*/
+	cout  << "#" << user("name") << "@" << cname() << " in ";
+	if (path == user("dir")) cout << "~";
+	else if (path == "/") cout << "/";
+	else cout << path;
+	cout << endl << "$";
+	}
 ```
